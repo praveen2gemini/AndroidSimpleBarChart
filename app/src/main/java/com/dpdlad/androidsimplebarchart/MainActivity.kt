@@ -12,5 +12,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         barChartView = findViewById(R.id.symmetricStarViewOriginal1)
+        barChartView?.dataBuilder()
+            ?.setMaximumAmount(450)
+            ?.addDataValue("JAN", 150, 100)
+            ?.addDataValue("FEB", 250, 200)
+            ?.addDataValue("MAR", 300, 250)
+            ?.addDataValue("APR", 350, 300)
+            ?.addDataValue("MAY", 400, 350)
+            ?.addDataValue("JUN", 450, 400)
+            ?.addDataValue("DUMMY", 0, 0)
+            ?.create()
+
     }
 }

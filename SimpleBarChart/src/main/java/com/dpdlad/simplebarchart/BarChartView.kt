@@ -20,6 +20,9 @@ class BarChartView @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
 
+    private var chartDataValues: ArrayList<ChartInfo>? = null
+    private var maximumAmountRange: Int = DEFAULT_MAX_AMOUNT_BOUND
+
     /**
      * It provides Default [Paint] object.
      *
@@ -126,7 +129,7 @@ class BarChartView @JvmOverloads constructor(
 
     private fun drawAmountBoundaries(canvas: Canvas) {
         val chartBottomAxis = (screenRectPx.width() * 0.75f)
-        val maxBound = DEFAULT_MAX_AMOUNT_BOUND
+        val maxBound = maximumAmountRange
         val boundDiff = DEFAULT_AMOUNT_BOUND_DIFF
         val variation = maxBound / boundDiff
         val viewDiff = chartBottomAxis / (variation + 1)
@@ -135,9 +138,10 @@ class BarChartView @JvmOverloads constructor(
         textPaint.isAntiAlias = true
         textPaint.textSize = 16 * resources.displayMetrics.density
         textPaint.color = Color.RED
-        for (x in 1..variation) {
-            val lineAxis = chartBottomAxis - (x * viewDiff) - 10 // 10 pixel move away from line
-            canvas.drawText("Text", lineStartXPoint, lineAxis, textPaint)
+        chartDataValues?.forEachIndexed { index, chartInfo ->
+            val lineAxis =
+                chartBottomAxis - (index * viewDiff) - 10 // 10 pixel move away from line
+            canvas.drawText((index * boundDiff).toString(), lineStartXPoint, lineAxis, textPaint)
         }
     }
 
@@ -147,23 +151,8 @@ class BarChartView @JvmOverloads constructor(
         val startingPoint = DEFAULT_AMOUNT_BOUND_DIFF
         val barWidth = 15
         val barSpace = 10
-        val totalBars = 12
-        val barChartList = ArrayList<Int>()
-        barChartList.add(150)
-        barChartList.add(450)
-        barChartList.add(450)
-        barChartList.add(120)
-        barChartList.add(200)
-        barChartList.add(250)
-        barChartList.add(300)
-        barChartList.add(350)
-        barChartList.add(380)
-        barChartList.add(400)
-        barChartList.add(420)
-        barChartList.add(450)
-        barChartList.add(0) // empty bar at final
 
-        barChartList.forEachIndexed { index, i ->
+        chartDataValues?.forEachIndexed { index, i ->
             val colorBarXAxis = startingPoint.toFloat() + (index * DEFAULT_AMOUNT_BOUND_DIFF)
             val colorBarYAxis = (colorBarXAxis + barWidth)
 
@@ -176,20 +165,24 @@ class BarChartView @JvmOverloads constructor(
                 getRectBar(
                     colorBarXAxis,
                     colorBarYAxis,
-                    (chartBottomAxis - i.toFloat())
+                    (chartBottomAxis - i.primaryBarValue.toFloat())
                 ),
                 DEFAULT_CORNER_RADIUS,
                 DEFAULT_CORNER_RADIUS,
                 outerCirclePaint(Color.GREEN)
             )
             canvas.drawRoundRect(
-                getRectBar(greyedBarXAxis, greyedBarYAxis, chartBottomAxis / 2),
+                getRectBar(
+                    greyedBarXAxis,
+                    greyedBarYAxis,
+                    (chartBottomAxis - i.secondaryBarValue.toFloat())
+                ),
                 DEFAULT_CORNER_RADIUS,
                 DEFAULT_CORNER_RADIUS,
                 outerCirclePaint(Color.DKGRAY)
             )
 
-            if (index == barChartList.size - 1) {
+            if (index == (chartDataValues?.size?.minus(1))) {
                 layoutParams =
                     LinearLayout.LayoutParams(
                         colorBarXAxis.toInt() - barWidth,
@@ -256,7 +249,7 @@ class BarChartView @JvmOverloads constructor(
 
     private fun drawDottedLine(canvas: Canvas) {
         val chartBottomAxis = (screenRectPx.width() * 0.75f)
-        val maxBound = DEFAULT_MAX_AMOUNT_BOUND
+        val maxBound = maximumAmountRange
         val boundDiff = DEFAULT_AMOUNT_BOUND_DIFF
         val variation = maxBound / boundDiff
         val viewDiff = chartBottomAxis / (variation + 1)
@@ -285,6 +278,56 @@ class BarChartView @JvmOverloads constructor(
             right,  // right
             bottom // bottom
         )
+    }
+
+    internal class ChartInfo {
+        internal var monthName: String? = null
+        internal var primaryBarValue = 0
+        internal var secondaryBarValue = 0
+
+        companion object {
+            fun createChartInfo(
+                monthName: String?,
+                primaryBarValue: Int,
+                secondaryBarValue: Int
+            ): ChartInfo {
+                val chartInfo = ChartInfo()
+                chartInfo.monthName = monthName
+                chartInfo.primaryBarValue = primaryBarValue
+                chartInfo.secondaryBarValue = secondaryBarValue
+                return chartInfo
+            }
+        }
+    }
+
+    fun setMaximumAmountRange(maximumAmountRange: Int) {
+        this.maximumAmountRange = maximumAmountRange
+    }
+
+    inner class DataBuilder {
+
+        init {
+            chartDataValues = ArrayList()
+        }
+
+
+        fun setMaximumAmount(maximumAmountRange: Int): DataBuilder? {
+            setMaximumAmountRange(maximumAmountRange)
+            return this
+        }
+
+        fun addDataValue(chartName: String?, data: Int, @ColorInt arcColor: Int): DataBuilder {
+            chartDataValues?.add(ChartInfo.createChartInfo(chartName, data, arcColor))
+            return this
+        }
+
+        fun create() {
+            requestLayout()
+        }
+    }
+
+    fun dataBuilder(): DataBuilder? {
+        return DataBuilder()
     }
 
     companion object {
