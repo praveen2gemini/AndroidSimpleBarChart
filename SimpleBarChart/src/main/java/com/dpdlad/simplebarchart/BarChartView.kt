@@ -344,6 +344,6 @@ class BarChartView @JvmOverloads constructor(
         private val TAG = BarChartView::class.java.simpleName
         private const val DEFAULT_CORNER_RADIUS = 3f
         private const val DEFAULT_MAX_AMOUNT_BOUND = 450
-        private const val DEFAULT_AMOUNT_BOUND_DIFF = 100
+        private const val DEFAULT_AMOUNT_BOUND_DIFF = 150
     }
 }
