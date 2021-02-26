@@ -125,8 +125,38 @@ class BarChartView @JvmOverloads constructor(
 //        drawBarChart(canvas)
         drawBarDynamicChart(canvas)
         drawCrossOnView(canvas) // Just to inspect the view coordinates x,y
+//        drawMonthsOnView(canvas)
         super.onDraw(canvas)
     }
+
+    private fun drawMonthsOnView(canvas: Canvas) {
+        val chartBottomAxis = (screenRectPx.width() * 0.75f) + 100
+        val maxBound = maximumAmountRange
+        val boundDiff = DEFAULT_AMOUNT_BOUND_DIFF
+        val variation = maxBound / boundDiff
+        val viewDiff = chartBottomAxis / (variation + 1)
+        val lineStartXPoint = (viewDiff * 0.25f)
+
+        chartDataValues?.forEachIndexed { index, chartInfo ->
+            val lineAxis =
+                chartBottomAxis - (index * viewDiff) - 10 // 10 pixel move away from line
+            canvas.drawText(
+                (index * boundDiff).toString(),
+                lineStartXPoint,
+                lineAxis,
+                getTextPaint()
+            )
+        }
+    }
+
+    private fun getTextPaint(): TextPaint {
+        val textPaint = TextPaint()
+        textPaint.isAntiAlias = true
+        textPaint.textSize = 16 * resources.displayMetrics.density
+        textPaint.color = ContextCompat.getColor(context, R.color.colorTextAmount)
+        return textPaint
+    }
+
 
     private fun drawAmountBoundaries(canvas: Canvas) {
         val chartBottomAxis = (screenRectPx.width() * 0.75f)
@@ -184,7 +214,12 @@ class BarChartView @JvmOverloads constructor(
                     ContextCompat.getColor(context, R.color.colorSecondaryBar)
                 )
             )
-
+            canvas.drawText(
+                chartDataValues?.get(index)?.monthName.toString(),
+                (colorBarXAxis - 15),
+                (chartBottomAxis + 50),
+                getTextPaint()
+            )
             if (index == (chartDataValues?.size?.minus(1))) {
                 layoutParams =
                     LinearLayout.LayoutParams(
@@ -252,8 +287,6 @@ class BarChartView @JvmOverloads constructor(
             chartBottomAxis,
             paint
         )
-//        canvas.drawLine(width * 0.5f, 0f, width * 0.5f, height.toFloat(), paint)
-//        canvas.drawLine(0f, chartBottomAxis, height.toFloat() * 2f, chartBottomAxis, paint)
     }
 
     private fun drawDottedLine(canvas: Canvas) {
