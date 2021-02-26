@@ -13,7 +13,11 @@ import kotlin.math.min
 /**
  * @author Praveen Kumar on 12/06/2017
  */
-class BarChartView @JvmOverloads constructor(context: Context?, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : View(context, attrs, defStyleAttr) {
+class BarChartView @JvmOverloads constructor(
+    context: Context?,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = 0
+) : View(context, attrs, defStyleAttr) {
 
     /**
      * It provides Default [Paint] object.
@@ -33,7 +37,10 @@ class BarChartView @JvmOverloads constructor(context: Context?, attrs: Attribute
      * @param color - optional to set according to progressing level.
      * @return - It returns the [Paint] instance to indicating progressing level to user by given value.
      */
-    private fun outerCirclePaint(@ColorInt color: Int, style: Paint.Style = Paint.Style.FILL_AND_STROKE): Paint {
+    private fun outerCirclePaint(
+        @ColorInt color: Int,
+        style: Paint.Style = Paint.Style.FILL_AND_STROKE
+    ): Paint {
         val paint = getDefaultPaint(style)
         paint.color = color
         paint.strokeCap = Paint.Cap.ROUND
@@ -42,7 +49,10 @@ class BarChartView @JvmOverloads constructor(context: Context?, attrs: Attribute
         return paint
     }
 
-    private fun getDottedPaint(@ColorInt color: Int, style: Paint.Style = Paint.Style.STROKE): Paint {
+    private fun getDottedPaint(
+        @ColorInt color: Int,
+        style: Paint.Style = Paint.Style.STROKE
+    ): Paint {
         val paint = getDefaultPaint(style)
         paint.isDither = true
         paint.color = color
@@ -107,9 +117,9 @@ class BarChartView @JvmOverloads constructor(context: Context?, attrs: Attribute
 //        val half = minSize / 2
         drawAmountBoundaries(canvas)
         drawDottedLine(canvas)
-        drawCrossOnView(canvas) // Just to inspect the view coordinates x,y
 //        drawBarChart(canvas)
         drawBarDynamicChart(canvas)
+        drawCrossOnView(canvas) // Just to inspect the view coordinates x,y
         super.onDraw(canvas)
     }
 
@@ -120,7 +130,6 @@ class BarChartView @JvmOverloads constructor(context: Context?, attrs: Attribute
         val variation = maxBound / boundDiff
         val viewDiff = chartBottomAxis / (variation + 1)
         val lineStartXPoint = (viewDiff * 0.25f)
-        val text = "test"
         val textPaint = TextPaint()
         textPaint.isAntiAlias = true
         textPaint.textSize = 16 * resources.displayMetrics.density
@@ -137,17 +146,33 @@ class BarChartView @JvmOverloads constructor(context: Context?, attrs: Attribute
         val startingPoint = DEFAULT_AMOUNT_BOUND_DIFF
         val barWidth = 15
         val barSpace = 10
-        for (i in 0..15) {
+        val totalBars = 12
+        for (i in 0..totalBars) {
             val colorBarXAxis = startingPoint.toFloat() + (i * DEFAULT_AMOUNT_BOUND_DIFF)
             val colorBarYAxis = (colorBarXAxis + barWidth)
 
             val greyedBarXAxis = colorBarYAxis + barSpace
             val greyedBarYAxis = greyedBarXAxis + barWidth
 
-            canvas.drawRoundRect(getRectBar(colorBarXAxis, colorBarYAxis), DEFAULT_CORNER_RADIUS, DEFAULT_CORNER_RADIUS, outerCirclePaint(Color.GREEN))
-            canvas.drawRoundRect(getRectBar(greyedBarXAxis, greyedBarYAxis, chartBottomAxis / 2), DEFAULT_CORNER_RADIUS, DEFAULT_CORNER_RADIUS, outerCirclePaint(Color.DKGRAY))
-            if (i == 15) {
-                layoutParams = LinearLayout.LayoutParams(greyedBarYAxis.toInt(), screenRectPx.width())
+            canvas.drawRoundRect(
+                getRectBar(colorBarXAxis, colorBarYAxis),
+                DEFAULT_CORNER_RADIUS,
+                DEFAULT_CORNER_RADIUS,
+                outerCirclePaint(Color.GREEN)
+            )
+            canvas.drawRoundRect(
+                getRectBar(greyedBarXAxis, greyedBarYAxis, chartBottomAxis / 2),
+                DEFAULT_CORNER_RADIUS,
+                DEFAULT_CORNER_RADIUS,
+                outerCirclePaint(Color.DKGRAY)
+            )
+
+            if (i == totalBars) {
+                layoutParams =
+                    LinearLayout.LayoutParams(
+                        colorBarXAxis.toInt() - barWidth,
+                        screenRectPx.width()
+                    )
             }
         }
 //        canvas.drawRoundRect(getRectBar(140f, 155f), DEFAULT_CORNER_RADIUS, DEFAULT_CORNER_RADIUS, outerCirclePaint(Color.GREEN))
@@ -160,11 +185,31 @@ class BarChartView @JvmOverloads constructor(context: Context?, attrs: Attribute
     private fun drawBarChart(canvas: Canvas) {
 
         val chartBottomAxis = (width * 0.75f)
-        canvas.drawRoundRect(getRectBar(140f, 155f), DEFAULT_CORNER_RADIUS, DEFAULT_CORNER_RADIUS, outerCirclePaint(Color.GREEN))
-        canvas.drawRoundRect(getRectBar(165f, 180f, chartBottomAxis / 2), DEFAULT_CORNER_RADIUS, DEFAULT_CORNER_RADIUS, outerCirclePaint(Color.DKGRAY))
+        canvas.drawRoundRect(
+            getRectBar(140f, 155f),
+            DEFAULT_CORNER_RADIUS,
+            DEFAULT_CORNER_RADIUS,
+            outerCirclePaint(Color.GREEN)
+        )
+        canvas.drawRoundRect(
+            getRectBar(165f, 180f, chartBottomAxis / 2),
+            DEFAULT_CORNER_RADIUS,
+            DEFAULT_CORNER_RADIUS,
+            outerCirclePaint(Color.DKGRAY)
+        )
 
-        canvas.drawRoundRect(getRectBar(260f, 275f), DEFAULT_CORNER_RADIUS, DEFAULT_CORNER_RADIUS, outerCirclePaint(Color.GREEN))
-        canvas.drawRoundRect(getRectBar(285f, 300f, chartBottomAxis / 3), DEFAULT_CORNER_RADIUS, DEFAULT_CORNER_RADIUS, outerCirclePaint(Color.DKGRAY))
+        canvas.drawRoundRect(
+            getRectBar(260f, 275f),
+            DEFAULT_CORNER_RADIUS,
+            DEFAULT_CORNER_RADIUS,
+            outerCirclePaint(Color.GREEN)
+        )
+        canvas.drawRoundRect(
+            getRectBar(285f, 300f, chartBottomAxis / 3),
+            DEFAULT_CORNER_RADIUS,
+            DEFAULT_CORNER_RADIUS,
+            outerCirclePaint(Color.DKGRAY)
+        )
     }
 
     private fun drawCrossOnView(canvas: Canvas) {
@@ -174,8 +219,20 @@ class BarChartView @JvmOverloads constructor(context: Context?, attrs: Attribute
 //        val chartBottomAxis = (width * 0.75f)
         val chartBottomAxis = (screenRectPx.width()
                 * 0.75f)
-        canvas.drawLine(screenRectPx.width() * 0.5f, 0f, screenRectPx.width() * 0.5f, screenRectPx.width().toFloat(), paint)
-        canvas.drawLine(0f, chartBottomAxis, screenRectPx.width().toFloat() * 2f, chartBottomAxis, paint)
+        canvas.drawLine(
+            screenRectPx.width() * 0.5f,
+            0f,
+            screenRectPx.width() * 0.5f,
+            screenRectPx.width().toFloat(),
+            paint
+        )
+        canvas.drawLine(
+            0f,
+            chartBottomAxis,
+            screenRectPx.width().toFloat() * 20f,
+            chartBottomAxis,
+            paint
+        )
 //        canvas.drawLine(width * 0.5f, 0f, width * 0.5f, height.toFloat(), paint)
 //        canvas.drawLine(0f, chartBottomAxis, height.toFloat() * 2f, chartBottomAxis, paint)
     }
@@ -189,16 +246,27 @@ class BarChartView @JvmOverloads constructor(context: Context?, attrs: Attribute
         for (x in 1..variation) {
             val lineAxis = chartBottomAxis - (x * viewDiff)
             val lineStartPoint = (viewDiff * 0.25f)
-            canvas.drawLine(lineStartPoint, lineAxis, height.toFloat() * 2f, lineAxis, getDottedPaint(Color.BLUE))
+            canvas.drawLine(
+                lineStartPoint,
+                lineAxis,
+                height.toFloat() * 10f,
+                lineAxis,
+                getDottedPaint(Color.BLUE)
+            )
         }
     }
 
-    private fun getRectBar(left: Float, right: Float, top: Float = 50f, bottom: Float = (screenRectPx.width() * 0.75f)): RectF {
+    private fun getRectBar(
+        left: Float,
+        right: Float,
+        top: Float = 50f,
+        bottom: Float = (screenRectPx.width() * 0.748f)
+    ): RectF {
         return RectF(
-                left,  // left
-                top,  // top
-                right,  // right
-                bottom // bottom
+            left,  // left
+            top,  // top
+            right,  // right
+            bottom // bottom
         )
     }
 
