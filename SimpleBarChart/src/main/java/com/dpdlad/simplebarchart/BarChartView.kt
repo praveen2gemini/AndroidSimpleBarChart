@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.*
 import android.text.TextPaint
 import android.util.AttributeSet
+import android.util.Log
 import android.view.View
 import android.widget.LinearLayout
 import androidx.annotation.ColorInt
@@ -147,15 +148,36 @@ class BarChartView @JvmOverloads constructor(
         val barWidth = 15
         val barSpace = 10
         val totalBars = 12
-        for (i in 0..totalBars) {
-            val colorBarXAxis = startingPoint.toFloat() + (i * DEFAULT_AMOUNT_BOUND_DIFF)
+        val barChartList = ArrayList<Int>()
+        barChartList.add(150)
+        barChartList.add(450)
+        barChartList.add(450)
+        barChartList.add(120)
+        barChartList.add(200)
+        barChartList.add(250)
+        barChartList.add(300)
+        barChartList.add(350)
+        barChartList.add(380)
+        barChartList.add(400)
+        barChartList.add(420)
+        barChartList.add(450)
+        barChartList.add(0) // empty bar at final
+
+        barChartList.forEachIndexed { index, i ->
+            val colorBarXAxis = startingPoint.toFloat() + (index * DEFAULT_AMOUNT_BOUND_DIFF)
             val colorBarYAxis = (colorBarXAxis + barWidth)
 
             val greyedBarXAxis = colorBarYAxis + barSpace
             val greyedBarYAxis = greyedBarXAxis + barWidth
 
+            Log.e("@@@@@@@@", " $i")
+            Log.e("@@@@@@@@", " $index")
             canvas.drawRoundRect(
-                getRectBar(colorBarXAxis, colorBarYAxis),
+                getRectBar(
+                    colorBarXAxis,
+                    colorBarYAxis,
+                    (chartBottomAxis - i.toFloat())
+                ),
                 DEFAULT_CORNER_RADIUS,
                 DEFAULT_CORNER_RADIUS,
                 outerCirclePaint(Color.GREEN)
@@ -167,7 +189,7 @@ class BarChartView @JvmOverloads constructor(
                 outerCirclePaint(Color.DKGRAY)
             )
 
-            if (i == totalBars) {
+            if (index == barChartList.size - 1) {
                 layoutParams =
                     LinearLayout.LayoutParams(
                         colorBarXAxis.toInt() - barWidth,
@@ -175,11 +197,6 @@ class BarChartView @JvmOverloads constructor(
                     )
             }
         }
-//        canvas.drawRoundRect(getRectBar(140f, 155f), DEFAULT_CORNER_RADIUS, DEFAULT_CORNER_RADIUS, outerCirclePaint(Color.GREEN))
-//        canvas.drawRoundRect(getRectBar(165f, 180f, chartBottomAxis / 2), DEFAULT_CORNER_RADIUS, DEFAULT_CORNER_RADIUS, outerCirclePaint(Color.DKGRAY))
-//
-//        canvas.drawRoundRect(getRectBar(260f, 275f), DEFAULT_CORNER_RADIUS, DEFAULT_CORNER_RADIUS, outerCirclePaint(Color.GREEN))
-//        canvas.drawRoundRect(getRectBar(285f, 300f, chartBottomAxis / 3), DEFAULT_CORNER_RADIUS, DEFAULT_CORNER_RADIUS, outerCirclePaint(Color.DKGRAY))
     }
 
     private fun drawBarChart(canvas: Canvas) {
