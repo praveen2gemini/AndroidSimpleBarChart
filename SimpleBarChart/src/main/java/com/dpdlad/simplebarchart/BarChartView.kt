@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.View
 import android.widget.LinearLayout
 import androidx.annotation.ColorInt
+import androidx.core.content.ContextCompat
 import kotlin.math.min
 
 
@@ -116,7 +117,7 @@ class BarChartView @JvmOverloads constructor(
     }
 
     override fun onDraw(canvas: Canvas) {
-        canvas.drawColor(Color.LTGRAY) // Background color
+        canvas.drawColor(Color.WHITE) // Background color
 //        val minSize = Math.min(width, height).toFloat()
 //        val half = minSize / 2
         drawAmountBoundaries(canvas)
@@ -137,7 +138,7 @@ class BarChartView @JvmOverloads constructor(
         val textPaint = TextPaint()
         textPaint.isAntiAlias = true
         textPaint.textSize = 16 * resources.displayMetrics.density
-        textPaint.color = Color.RED
+        textPaint.color = ContextCompat.getColor(context, R.color.colorTextAmount)
         chartDataValues?.forEachIndexed { index, chartInfo ->
             val lineAxis =
                 chartBottomAxis - (index * viewDiff) - 10 // 10 pixel move away from line
@@ -169,7 +170,7 @@ class BarChartView @JvmOverloads constructor(
                 ),
                 DEFAULT_CORNER_RADIUS,
                 DEFAULT_CORNER_RADIUS,
-                outerCirclePaint(Color.GREEN)
+                outerCirclePaint(ContextCompat.getColor(context, R.color.colorPrimaryBar))
             )
             canvas.drawRoundRect(
                 getRectBar(
@@ -179,7 +180,9 @@ class BarChartView @JvmOverloads constructor(
                 ),
                 DEFAULT_CORNER_RADIUS,
                 DEFAULT_CORNER_RADIUS,
-                outerCirclePaint(Color.DKGRAY)
+                outerCirclePaint(
+                    ContextCompat.getColor(context, R.color.colorSecondaryBar)
+                )
             )
 
             if (index == (chartDataValues?.size?.minus(1))) {
@@ -212,32 +215,38 @@ class BarChartView @JvmOverloads constructor(
             getRectBar(260f, 275f),
             DEFAULT_CORNER_RADIUS,
             DEFAULT_CORNER_RADIUS,
-            outerCirclePaint(Color.GREEN)
+            outerCirclePaint(ContextCompat.getColor(context, R.color.colorPrimaryBar))
         )
         canvas.drawRoundRect(
             getRectBar(285f, 300f, chartBottomAxis / 3),
             DEFAULT_CORNER_RADIUS,
             DEFAULT_CORNER_RADIUS,
-            outerCirclePaint(Color.DKGRAY)
+            outerCirclePaint(ContextCompat.getColor(context, R.color.colorSecondaryBar))
         )
     }
 
     private fun drawCrossOnView(canvas: Canvas) {
+
+        val chartBottomAxis = (screenRectPx.width() * 0.75f)
+        val maxBound = maximumAmountRange
+        val boundDiff = DEFAULT_AMOUNT_BOUND_DIFF
+        val variation = maxBound / boundDiff
+        val viewDiff = chartBottomAxis / (variation + 1)
         val paint = getDefaultPaint(Paint.Style.STROKE)
-        paint.color = Color.RED
+        paint.color = ContextCompat.getColor(context, R.color.colorDottedLine)
         paint.strokeWidth = 2f
 //        val chartBottomAxis = (width * 0.75f)
-        val chartBottomAxis = (screenRectPx.width()
-                * 0.75f)
+
+//        canvas.drawLine(
+//            screenRectPx.width() * 0.5f,
+//            0f,
+//            screenRectPx.width() * 0.5f,
+//            screenRectPx.width().toFloat(),
+//            paint
+//        )
+        val lineStartPoint = (viewDiff * 0.25f)
         canvas.drawLine(
-            screenRectPx.width() * 0.5f,
-            0f,
-            screenRectPx.width() * 0.5f,
-            screenRectPx.width().toFloat(),
-            paint
-        )
-        canvas.drawLine(
-            0f,
+            lineStartPoint,
             chartBottomAxis,
             screenRectPx.width().toFloat() * 20f,
             chartBottomAxis,
@@ -261,7 +270,7 @@ class BarChartView @JvmOverloads constructor(
                 lineAxis,
                 height.toFloat() * 10f,
                 lineAxis,
-                getDottedPaint(Color.BLUE)
+                getDottedPaint(ContextCompat.getColor(context, R.color.colorTextAmount))
             )
         }
     }
@@ -335,6 +344,6 @@ class BarChartView @JvmOverloads constructor(
         private val TAG = BarChartView::class.java.simpleName
         private const val DEFAULT_CORNER_RADIUS = 3f
         private const val DEFAULT_MAX_AMOUNT_BOUND = 450
-        private const val DEFAULT_AMOUNT_BOUND_DIFF = 150
+        private const val DEFAULT_AMOUNT_BOUND_DIFF = 100
     }
 }
