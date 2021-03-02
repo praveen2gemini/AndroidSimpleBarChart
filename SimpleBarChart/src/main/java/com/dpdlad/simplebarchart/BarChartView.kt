@@ -24,13 +24,15 @@ class BarChartView @JvmOverloads constructor(
     private var chartDataValues: ArrayList<ChartInfo>? = null
     private var maximumAmountRange: Int = DEFAULT_MAX_AMOUNT_BOUND
     private var amountLabel: String? = null
+    private var primaryBarColor: Int = R.color.colorPrimaryBar
+    private var secondaryBarColor: Int = R.color.colorSecondaryBar
 
     /**
      * It provides Default [Paint] object.
      *
      * @return loaded [Paint] instance.
      */
-    private fun getDefaultPaint(style: Paint.Style): Paint {
+    private fun getDefaultPaint(style: Paint.Style = Paint.Style.FILL_AND_STROKE): Paint {
         val paint = Paint()
         paint.isAntiAlias = true
         paint.style = style
@@ -158,6 +160,14 @@ class BarChartView @JvmOverloads constructor(
         return textPaint
     }
 
+    private fun getLegendTextPaint(): TextPaint {
+        val textPaint = TextPaint()
+        textPaint.isAntiAlias = true
+        textPaint.textSize = 12 * resources.displayMetrics.density
+        textPaint.color = ContextCompat.getColor(context, R.color.colorTextAmount)
+        return textPaint
+    }
+
 
     private fun drawAmountBoundaries(canvas: Canvas) {
         val chartBottomAxis = (screenRectPx.width() * 0.75f)
@@ -234,6 +244,32 @@ class BarChartView @JvmOverloads constructor(
                     )
             }
         }
+        canvas.drawCircle(
+            (screenRectPx.width() / 4).toFloat(),
+            (chartBottomAxis + 110),
+            8f,
+            outerCirclePaint(ContextCompat.getColor(context, primaryBarColor))
+        )
+        val primaryHint = "Incoming"
+        val secondaryHint = "Outgoing"
+        canvas.drawText(
+            primaryHint,
+            (screenRectPx.width() / 4).toFloat() + 20,
+            (chartBottomAxis + 120),
+            getLegendTextPaint()
+        )
+        canvas.drawCircle(
+            (screenRectPx.width() / 2).toFloat(),
+            (chartBottomAxis + 110),
+            8f,
+            outerCirclePaint(ContextCompat.getColor(context, secondaryBarColor))
+        )
+        canvas.drawText(
+            secondaryHint,
+            (screenRectPx.width() / 2).toFloat() + 20,
+            (chartBottomAxis + 120),
+            getLegendTextPaint()
+        )
     }
 
     private fun drawBarChart(canvas: Canvas) {
@@ -256,13 +292,13 @@ class BarChartView @JvmOverloads constructor(
             getRectBar(260f, 275f),
             DEFAULT_CORNER_RADIUS,
             DEFAULT_CORNER_RADIUS,
-            outerCirclePaint(ContextCompat.getColor(context, R.color.colorPrimaryBar))
+            outerCirclePaint(ContextCompat.getColor(context, primaryBarColor))
         )
         canvas.drawRoundRect(
             getRectBar(285f, 300f, chartBottomAxis / 3),
             DEFAULT_CORNER_RADIUS,
             DEFAULT_CORNER_RADIUS,
-            outerCirclePaint(ContextCompat.getColor(context, R.color.colorSecondaryBar))
+            outerCirclePaint(ContextCompat.getColor(context, secondaryBarColor))
         )
     }
 
@@ -356,6 +392,14 @@ class BarChartView @JvmOverloads constructor(
         this.amountLabel = amountLabel
     }
 
+    fun setPrimaryColor(primaryBarColor: Int) {
+        this.primaryBarColor = primaryBarColor
+    }
+
+    fun setSecondaryColor(secondaryBarColor: Int) {
+        this.secondaryBarColor = secondaryBarColor
+    }
+
     inner class DataBuilder {
 
         init {
@@ -373,12 +417,23 @@ class BarChartView @JvmOverloads constructor(
             return this
         }
 
-        fun addDataValue(chartName: String?, data: Int, @ColorInt arcColor: Int): DataBuilder {
-            chartDataValues?.add(ChartInfo.createChartInfo(chartName, data, arcColor))
+        fun setPrimaryBarColor(primaryBarColor: Int): DataBuilder? {
+            setPrimaryColor(primaryBarColor)
+            return this
+        }
+
+        fun setSecondaryBarColor(secondaryBarColor: Int): DataBuilder? {
+            setSecondaryColor(secondaryBarColor)
+            return this
+        }
+
+        fun addDataValue(chartName: String?, primaryBarValue: Int, secondaryBarValue: Int): DataBuilder {
+            chartDataValues?.add(ChartInfo.createChartInfo(chartName, primaryBarValue, secondaryBarValue))
             return this
         }
 
         fun create() {
+            addDataValue("DUMMY", 0, 0) // Dummy needed
             requestLayout()
         }
     }
