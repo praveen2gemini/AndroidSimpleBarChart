@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         barChartView = findViewById(R.id.symmetricStarViewOriginal1)
         barChartView?.dataBuilder()
+            ?.setAmountLabelText("(MUR X 1M)")
             ?.setMaximumAmount(450)
             ?.addDataValue("JAN", 150, 100)
             ?.addDataValue("FEB", 250, 200)

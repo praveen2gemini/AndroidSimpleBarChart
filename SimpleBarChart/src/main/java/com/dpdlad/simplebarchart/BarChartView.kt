@@ -23,6 +23,7 @@ class BarChartView @JvmOverloads constructor(
 
     private var chartDataValues: ArrayList<ChartInfo>? = null
     private var maximumAmountRange: Int = DEFAULT_MAX_AMOUNT_BOUND
+    private var amountLabel: String? = null
 
     /**
      * It provides Default [Paint] object.
@@ -169,10 +170,15 @@ class BarChartView @JvmOverloads constructor(
         textPaint.isAntiAlias = true
         textPaint.textSize = 16 * resources.displayMetrics.density
         textPaint.color = ContextCompat.getColor(context, R.color.colorTextAmount)
-        chartDataValues?.forEachIndexed { index, chartInfo ->
-            val lineAxis =
-                chartBottomAxis - (index * viewDiff) - 10 // 10 pixel move away from line
+        var lineAxis = 0f
+        for ((index, _) in (0..maximumAmountRange step DEFAULT_AMOUNT_BOUND_DIFF).withIndex()) {
+            lineAxis = chartBottomAxis - (index * viewDiff) - 10 // 10 pixel move away from line
             canvas.drawText((index * boundDiff).toString(), lineStartXPoint, lineAxis, textPaint)
+        }
+        amountLabel?.let {
+            textPaint.color = ContextCompat.getColor(context, android.R.color.black)
+            lineAxis = lineAxis.minus(DEFAULT_AMOUNT_BOUND_DIFF / 2.75).toFloat()
+            canvas.drawText(it, lineStartXPoint, lineAxis, textPaint)
         }
     }
 
@@ -346,6 +352,10 @@ class BarChartView @JvmOverloads constructor(
         this.maximumAmountRange = maximumAmountRange
     }
 
+    fun setAmountLabel(amountLabel: String) {
+        this.amountLabel = amountLabel
+    }
+
     inner class DataBuilder {
 
         init {
@@ -355,6 +365,11 @@ class BarChartView @JvmOverloads constructor(
 
         fun setMaximumAmount(maximumAmountRange: Int): DataBuilder? {
             setMaximumAmountRange(maximumAmountRange)
+            return this
+        }
+
+        fun setAmountLabelText(amountLabel: String): DataBuilder? {
+            setAmountLabel(amountLabel)
             return this
         }
 
