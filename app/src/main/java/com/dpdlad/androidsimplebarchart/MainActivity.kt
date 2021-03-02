@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
             ?.setSecondaryBarColor(com.dpdlad.simplebarchart.R.color.colorSecondaryBar)
             ?.setAmountLabelText("(MUR X 1M)")
             ?.setMaximumAmount(450)
+            ?.setAmountBoundDifference(150)
             ?.addDataValue("Jan", 150, 100)
             ?.addDataValue("Feb", 200, 250)
             ?.addDataValue("Mar", 300, 250)

@@ -23,6 +23,7 @@ class BarChartView @JvmOverloads constructor(
 
     private var chartDataValues: ArrayList<ChartInfo>? = null
     private var maximumAmountRange: Int = DEFAULT_MAX_AMOUNT_BOUND
+    private var amountBoundDifference: Int = DEFAULT_AMOUNT_BOUND_DIFF
     private var amountLabel: String? = null
     private var primaryBarColor: Int = R.color.colorPrimaryBar
     private var secondaryBarColor: Int = R.color.colorSecondaryBar
@@ -135,7 +136,7 @@ class BarChartView @JvmOverloads constructor(
     private fun drawMonthsOnView(canvas: Canvas) {
         val chartBottomAxis = (screenRectPx.width() * 0.75f) + 100
         val maxBound = maximumAmountRange
-        val boundDiff = DEFAULT_AMOUNT_BOUND_DIFF
+        val boundDiff = amountBoundDifference
         val variation = maxBound / boundDiff
         val viewDiff = chartBottomAxis / (variation + 1)
         val lineStartXPoint = (viewDiff * 0.25f)
@@ -172,20 +173,22 @@ class BarChartView @JvmOverloads constructor(
     private fun drawAmountBoundaries(canvas: Canvas) {
         val chartBottomAxis = (screenRectPx.width() * 0.75f)
         val maxBound = maximumAmountRange
-        val boundDiff = DEFAULT_AMOUNT_BOUND_DIFF
+//        val boundDiff = DEFAULT_AMOUNT_BOUND_DIFF
+        val boundDiff = amountBoundDifference
         val variation = maxBound / boundDiff
         val viewDiff = chartBottomAxis / (variation + 1)
         val lineStartXPoint = (viewDiff * 0.25f)
         val textPaint = TextPaint()
         textPaint.isAntiAlias = true
-        textPaint.textSize = 16 * resources.displayMetrics.density
+        textPaint.textSize = 12 * resources.displayMetrics.density
         textPaint.color = ContextCompat.getColor(context, R.color.colorTextAmount)
         var lineAxis = 0f
-        for ((index, _) in (0..maximumAmountRange step DEFAULT_AMOUNT_BOUND_DIFF).withIndex()) {
+        for ((index, _) in (0..maximumAmountRange step amountBoundDifference).withIndex()) {
             lineAxis = chartBottomAxis - (index * viewDiff) - 10 // 10 pixel move away from line
             canvas.drawText((index * boundDiff).toString(), lineStartXPoint, lineAxis, textPaint)
         }
         amountLabel?.let {
+            textPaint.textSize = 10 * resources.displayMetrics.density
             textPaint.color = ContextCompat.getColor(context, android.R.color.black)
             lineAxis = lineAxis.minus(DEFAULT_AMOUNT_BOUND_DIFF / 2.75).toFloat()
             canvas.drawText(it, lineStartXPoint, lineAxis, textPaint)
@@ -195,12 +198,12 @@ class BarChartView @JvmOverloads constructor(
     private fun drawBarDynamicChart(canvas: Canvas) {
         val chartBottomAxis = (screenRectPx.width() * 0.75f)
 
-        val startingPoint = DEFAULT_AMOUNT_BOUND_DIFF
+        val startingPoint = DEFAULT_BAR_SPACE
         val barWidth = 15
         val barSpace = 10
 
         chartDataValues?.forEachIndexed { index, i ->
-            val colorBarXAxis = startingPoint.toFloat() + (index * DEFAULT_AMOUNT_BOUND_DIFF)
+            val colorBarXAxis = startingPoint.toFloat() + (index * DEFAULT_BAR_SPACE)
             val colorBarYAxis = (colorBarXAxis + barWidth)
 
             val greyedBarXAxis = colorBarYAxis + barSpace
@@ -230,11 +233,13 @@ class BarChartView @JvmOverloads constructor(
                     ContextCompat.getColor(context, R.color.colorSecondaryBar)
                 )
             )
+            val textPaint = getTextPaint(android.R.color.black)
+            textPaint.textSize = 12 * resources.displayMetrics.density
             canvas.drawText(
                 chartDataValues?.get(index)?.monthName.toString(),
                 (colorBarXAxis - 15),
                 (chartBottomAxis + 50),
-                getTextPaint(android.R.color.black)
+                textPaint
             )
             if (index == (chartDataValues?.size?.minus(1))) {
                 layoutParams =
@@ -306,7 +311,7 @@ class BarChartView @JvmOverloads constructor(
 
         val chartBottomAxis = (screenRectPx.width() * 0.75f)
         val maxBound = maximumAmountRange
-        val boundDiff = DEFAULT_AMOUNT_BOUND_DIFF
+        val boundDiff = amountBoundDifference
         val variation = maxBound / boundDiff
         val viewDiff = chartBottomAxis / (variation + 1)
         val paint = getDefaultPaint(Paint.Style.STROKE)
@@ -334,7 +339,7 @@ class BarChartView @JvmOverloads constructor(
     private fun drawDottedLine(canvas: Canvas) {
         val chartBottomAxis = (screenRectPx.width() * 0.75f)
         val maxBound = maximumAmountRange
-        val boundDiff = DEFAULT_AMOUNT_BOUND_DIFF
+        val boundDiff = amountBoundDifference
         val variation = maxBound / boundDiff
         val viewDiff = chartBottomAxis / (variation + 1)
         for (x in 1..variation) {
@@ -388,6 +393,10 @@ class BarChartView @JvmOverloads constructor(
         this.maximumAmountRange = maximumAmountRange
     }
 
+    fun setAmountBoundDifferenceValue(amountBoundDifference: Int) {
+        this.amountBoundDifference = amountBoundDifference
+    }
+
     fun setAmountLabel(amountLabel: String) {
         this.amountLabel = amountLabel
     }
@@ -409,6 +418,11 @@ class BarChartView @JvmOverloads constructor(
 
         fun setMaximumAmount(maximumAmountRange: Int): DataBuilder? {
             setMaximumAmountRange(maximumAmountRange)
+            return this
+        }
+
+        fun setAmountBoundDifference(amountBoundDifference: Int): DataBuilder? {
+            setAmountBoundDifferenceValue(amountBoundDifference)
             return this
         }
 
@@ -448,5 +462,6 @@ class BarChartView @JvmOverloads constructor(
         private const val DEFAULT_CORNER_RADIUS = 3f
         private const val DEFAULT_MAX_AMOUNT_BOUND = 450
         private const val DEFAULT_AMOUNT_BOUND_DIFF = 150
+        private const val DEFAULT_BAR_SPACE = 150
     }
 }
