@@ -152,11 +152,11 @@ class BarChartView @JvmOverloads constructor(
         }
     }
 
-    private fun getTextPaint(): TextPaint {
+    private fun getTextPaint(color: Int = R.color.colorTextAmount): TextPaint {
         val textPaint = TextPaint()
         textPaint.isAntiAlias = true
         textPaint.textSize = 16 * resources.displayMetrics.density
-        textPaint.color = ContextCompat.getColor(context, R.color.colorTextAmount)
+        textPaint.color = ContextCompat.getColor(context, color)
         return textPaint
     }
 
@@ -234,7 +234,7 @@ class BarChartView @JvmOverloads constructor(
                 chartDataValues?.get(index)?.monthName.toString(),
                 (colorBarXAxis - 15),
                 (chartBottomAxis + 50),
-                getTextPaint()
+                getTextPaint(android.R.color.black)
             )
             if (index == (chartDataValues?.size?.minus(1))) {
                 layoutParams =
@@ -245,7 +245,7 @@ class BarChartView @JvmOverloads constructor(
             }
         }
         canvas.drawCircle(
-            (screenRectPx.width() / 4).toFloat(),
+            (screenRectPx.width() / 3.5).toFloat(),
             (chartBottomAxis + 110),
             8f,
             outerCirclePaint(ContextCompat.getColor(context, primaryBarColor))
@@ -254,7 +254,7 @@ class BarChartView @JvmOverloads constructor(
         val secondaryHint = "Outgoing"
         canvas.drawText(
             primaryHint,
-            (screenRectPx.width() / 4).toFloat() + 20,
+            (screenRectPx.width() / 3.5).toFloat() + 20,
             (chartBottomAxis + 120),
             getLegendTextPaint()
         )

@@ -17,12 +17,12 @@ class MainActivity : AppCompatActivity() {
             ?.setSecondaryBarColor(com.dpdlad.simplebarchart.R.color.colorSecondaryBar)
             ?.setAmountLabelText("(MUR X 1M)")
             ?.setMaximumAmount(450)
-            ?.addDataValue("JAN", 150, 100)
-            ?.addDataValue("FEB", 250, 200)
-            ?.addDataValue("MAR", 300, 250)
-            ?.addDataValue("APR", 350, 300)
-            ?.addDataValue("MAY", 400, 350)
-            ?.addDataValue("JUN", 450, 400)
+            ?.addDataValue("Jan", 150, 100)
+            ?.addDataValue("Feb", 200, 250)
+            ?.addDataValue("Mar", 300, 250)
+            ?.addDataValue("Apr", 350, 300)
+            ?.addDataValue("May", 400, 350)
+            ?.addDataValue("Jun", 450, 400)
             ?.create()
 
     }
