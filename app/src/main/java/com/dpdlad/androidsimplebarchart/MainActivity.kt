@@ -111,6 +111,8 @@ class MainActivity : AppCompatActivity() {
         mChart!!.setScaleEnabled(false)
         mChart!!.setVisibleXRangeMaximum(6f)
         mChart!!.groupBars(1f, groupSpace, barSpace)
+
+
         mChart!!.invalidate()
     }
 }
