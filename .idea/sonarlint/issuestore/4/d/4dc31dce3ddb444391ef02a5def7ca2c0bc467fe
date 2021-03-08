@@ -1,0 +1,55 @@
+
+t	java:S1150"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(şùØÌúÿÿÿÿ
+o	java:S115#"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ŒØ
+o	java:S1159"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.( ©É·
+E
+java:S1121Ü".Extract the assignment out of this expression.(Ù·åï
+o	java:S115)"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ØŠèµ
+J
+java:S1121ş".Extract the assignment out of this expression.(—ò¢âşÿÿÿÿ
+E
+java:S1121ü".Extract the assignment out of this expression.(à—­î
+t	java:S115&"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(´Ì¶ÿúÿÿÿÿ
+n	java:S1158"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¼¿¤
+E
+java:S1121’".Extract the assignment out of this expression.(¥·ƒ¸
+J
+java:S1121§".Extract the assignment out of this expression.(ÒîÛŸşÿÿÿÿ
+o	java:S115("ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(´©ºü
+o	java:S115!"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(Íè€ü
+J
+java:S1121”".Extract the assignment out of this expression.(ƒ‘¾ıÿÿÿÿ
+t	java:S115,"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ãÀşÆüÿÿÿÿ
+o	java:S115/"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(³›¡
+o	java:S1154"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¸™Ş¬
+t	java:S1151"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(‡¨‡æûÿÿÿÿ
+J
+java:S1121à".Extract the assignment out of this expression.(‘€¿üÿÿÿÿ
+o	java:S115*"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(–Úë”
+P
+java:S1133D"5Do not forget to remove this deprecated code someday.(î½ıÙùÿÿÿÿ
+o	java:S115."ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(‰•¾í
+o	java:S115""ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¡ÎÔß
+J
+java:S1121¶".Extract the assignment out of this expression.(‹½Å‡ùÿÿÿÿ
+t	java:S115'"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¼Ş…‡úÿÿÿÿ
+J
+java:S1121ş".Extract the assignment out of this expression.(—ò¢âşÿÿÿÿ
+t	java:S115+"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ôß°‘ùÿÿÿÿ
+t	java:S115-"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(È‡Æµùÿÿÿÿ
+o	java:S115%"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¬ª§Ú
+t	java:S1152"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ÕÁÑûÿÿÿÿ
+n	java:S1153"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(»Íƒf
+P
+java:S1133"5Do not forget to remove this deprecated code someday.(æòƒıüÿÿÿÿ
+o	java:S1155"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(Â¨¶ì
+J
+java:S1121".Extract the assignment out of this expression.(”ó¸şÿÿÿÿ
+o	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(„ôÇµ
+t	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(İ¿å€ûÿÿÿÿ
+o	java:S115$"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(‡çãò
+C
+java:S1123D"(Add the missing @deprecated Javadoc tag.(î½ıÙùÿÿÿÿ
+t	java:S115 "ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ı€ğÚùÿÿÿÿ
+t	java:S1156"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(×şŸœıÿÿÿÿ
+o	java:S1157"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(•Æ‰é

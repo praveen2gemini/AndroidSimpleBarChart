@@ -6,7 +6,7 @@ import android.text.TextPaint
 import android.util.AttributeSet
 import android.util.Log
 import android.view.View
-import android.widget.LinearLayout
+import android.widget.FrameLayout
 import androidx.annotation.ColorInt
 import androidx.core.content.ContextCompat
 import kotlin.math.min
@@ -243,7 +243,7 @@ class BarChartView @JvmOverloads constructor(
             )
             if (index == (chartDataValues?.size?.minus(1))) {
                 layoutParams =
-                    LinearLayout.LayoutParams(
+                    FrameLayout.LayoutParams(
                         colorBarXAxis.toInt() - barWidth,
                         screenRectPx.width()
                     )
@@ -441,8 +441,18 @@ class BarChartView @JvmOverloads constructor(
             return this
         }
 
-        fun addDataValue(chartName: String?, primaryBarValue: Int, secondaryBarValue: Int): DataBuilder {
-            chartDataValues?.add(ChartInfo.createChartInfo(chartName, primaryBarValue, secondaryBarValue))
+        fun addDataValue(
+            chartName: String?,
+            primaryBarValue: Int,
+            secondaryBarValue: Int
+        ): DataBuilder {
+            chartDataValues?.add(
+                ChartInfo.createChartInfo(
+                    chartName,
+                    primaryBarValue,
+                    secondaryBarValue
+                )
+            )
             return this
         }
 

@@ -1,0 +1,42 @@
+
+F
+java:S1659Ó"*Declare "offsetBottom" on a separate line.(ßü°ªúÿÿÿÿ
+U
+java:S5993"9Change the visibility of this constructor to "protected".(¡Åå“ùÿÿÿÿ
+R	java:S125‰"<This block of commented-out lines of code should be removed.(¿õ™ï
+]
+java:S1126¯"AReplace this if-then-else statement by a single return statement.(Îãœ¶şÿÿÿÿ
+=	java:S131Ì""Add a default case to this switch.(öÛ«°şÿÿÿÿ
+E
+java:S1659Ó")Declare "offsetRight" on a separate line.(ßü°ªúÿÿÿÿ
+C
+java:S1659Ó"'Declare "offsetTop" on a separate line.(ßü°ªúÿÿÿÿ
+z
+java:S1488â
+"^Immediately return this expression instead of assigning it to the temporary variable "result".(§›Û†ÿÿÿÿÿ
+W	java:S125¬"<This block of commented-out lines of code should be removed.(¶ˆüƒşÿÿÿÿ
+n
+java:S3776»"RRefactor this method to reduce its Cognitive Complexity from 27 to the 15 allowed.(ÕÆ¾ùıÿÿÿÿ
+b
+java:S1301"KReplace this "switch" statement by "if" statements to increase readability.(³í€
+O
+java:S5993“"9Change the visibility of this constructor to "protected".(‹Ğ
+X
+java:S1161…":Add the "@Override" annotation above this method signature(Ì§Çõ8µ–¿ãÿ.
+g
+java:S1301Ì"KReplace this "switch" statement by "if" statements to increase readability.(öÛ«°şÿÿÿÿ
+M
+java:S3740Ë
+"/Provide the parametrized type for this generic.(¡ÈÙÆ8µ–¿ãÿ.
+u
+java:S1488õ
+"^Immediately return this expression instead of assigning it to the temporary variable "result".(·—¤
+g
+java:S1301Ù"KReplace this "switch" statement by "if" statements to increase readability.(öÛ«°şÿÿÿÿ
+]
+java:S1161":Add the "@Override" annotation above this method signature(Ÿ–Áæùÿÿÿÿ8µ–¿ãÿ.
+=	java:S131Ù""Add a default case to this switch.(öÛ«°şÿÿÿÿ
+U
+java:S5993‹"9Change the visibility of this constructor to "protected".(‡¤´¬ıÿÿÿÿ
+R
+java:S3740¦"/Provide the parametrized type for this generic.(°«ı´ÿÿÿÿÿ8µ–¿ãÿ.

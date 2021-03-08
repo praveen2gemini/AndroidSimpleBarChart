@@ -1,0 +1,101 @@
+
+L
+java:S1133ş
+"5Do not forget to remove this deprecated code someday.(™»ú…
+E
+java:S1125ˆ")Remove the literal "false" boolean value.(——Àùÿÿÿÿ
+g
+java:S1301î
+"KReplace this "switch" statement by "if" statements to increase readability.(öÛ«°şÿÿÿÿ
+g
+java:S1301İ
+"KReplace this "switch" statement by "if" statements to increase readability.(öÛ«°şÿÿÿÿ
+R	java:S125"<This block of commented-out lines of code should be removed.(¡ù©á
+L
+java:S1133ù
+"5Do not forget to remove this deprecated code someday.(Á»¥š
+=
+java:S1075Â"&Remove this hard-coded path-delimiter.(ˆúÔé
+;
+java:S1659´"Declare "y" on a separate line.(ãï€şúÿÿÿÿ
+K
+java:S1066©"/Merge this if statement with the enclosing one.(áµŒüÿÿÿÿ
+Y
+java:S1854ú"=Remove this useless assignment to local variable "reference".(Ÿ®Àïøÿÿÿÿ
+?
+java:S1123ù
+"(Add the missing @deprecated Javadoc tag.(Á»¥š
+=	java:S131î
+""Add a default case to this switch.(öÛ«°şÿÿÿÿ
+]
+java:S1126Ù"AReplace this if-then-else statement by a single return statement.(üˆÙ¢ıÿÿÿÿ
+=	java:S131İ
+""Add a default case to this switch.(öÛ«°şÿÿÿÿ
+?
+java:S1123æ	"(Add the missing @deprecated Javadoc tag.(Ğ¾Ç†
+w
+java:S3252İ"[Use static access with "android.provider.MediaStore$Images$ImageColumns" for "ORIENTATION".(Åµ®õøÿÿÿÿ
+R	java:S125ß"<This block of commented-out lines of code should be removed.(ï¨Æô
+i
+java:S3252Ş"MUse static access with "android.provider.MediaStore$MediaColumns" for "DATA".(‚—êÜÿÿÿÿÿ
+R
+java:S3740»"/Provide the parametrized type for this generic.( ¯Àùÿÿÿÿ8²–¿ãÿ.
+W	java:S125Ó"<This block of commented-out lines of code should be removed.(ÁÛäğıÿÿÿÿ
+L
+java:S1133"5Do not forget to remove this deprecated code someday.(òâœ†
+R
+java:S3740Û"/Provide the parametrized type for this generic.(Ñä¬øÿÿÿÿ8²–¿ãÿ.
+L
+java:S1659²"0Declare "mExtraBottomOffset" on a separate line.(Ò¦»ãûÿÿÿÿ
+R
+java:S3740"/Provide the parametrized type for this generic.(²ê›úÿÿÿÿ8²–¿ãÿ.
+U
+java:S5993¸"9Change the visibility of this constructor to "protected".(‘èÔúÿÿÿÿ
+Q
+java:S1133¡"5Do not forget to remove this deprecated code someday.(¬³Êíûÿÿÿÿ
+t	java:S135×"YReduce the total number of break and continue statements in this loop to use at most one.(¸äì’şÿÿÿÿ
+M
+java:S3740²"/Provide the parametrized type for this generic.(¿¹“½8²–¿ãÿ.
+u
+java:S2293ô"YReplace the type specification in this constructor call with the diamond operator ("<>").(’ñùúÿÿÿÿ
+P
+java:S5993È"9Change the visibility of this constructor to "protected".(—µ¼£
+o
+java:S3252Ú"SUse static access with "android.provider.MediaStore$MediaColumns" for "DATE_ADDED".(ç×‰äÿÿÿÿÿ
+Œ
+java:S1319“"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¸ïÙĞøÿÿÿÿ
+E
+java:S1659³".Declare "mExtraLeftOffset" on a separate line.(š¦Çÿ
+L
+java:S1133æ	"5Do not forget to remove this deprecated code someday.(Ğ¾Ç†
+M
+java:S3740¬"/Provide the parametrized type for this generic.(ØàøŠ8²–¿ãÿ.
+R	java:S125ø"<This block of commented-out lines of code should be removed.(ÅŒáŸ
+q
+java:S3252Ù"UUse static access with "android.provider.MediaStore$MediaColumns" for "DISPLAY_NAME".(ŒÈ§Ğşÿÿÿÿ
+r
+java:S3252Ü"[Use static access with "android.provider.MediaStore$Images$ImageColumns" for "DESCRIPTION".(¨ËùÆ
+i
+java:S3252ß"MUse static access with "android.provider.MediaStore$MediaColumns" for "SIZE".(Ò¡“íùÿÿÿÿ
+?
+java:S1123ş
+"(Add the missing @deprecated Javadoc tag.(™»ú…
+U
+java:S5993À"9Change the visibility of this constructor to "protected".(—éÿüÿÿÿÿ
+?
+java:S1123"(Add the missing @deprecated Javadoc tag.(òâœ†
+Q
+java:S1133²"5Do not forget to remove this deprecated code someday.(ôå¥şÿÿÿÿ
+?
+java:S1123ë	"(Add the missing @deprecated Javadoc tag.(Ã†ş
+e
+java:S3252Ø"NUse static access with "android.provider.MediaStore$MediaColumns" for "TITLE".(Şğƒ®
+F
+java:S1659±"/Declare "mExtraRightOffset" on a separate line.(ŠçŒ
+i
+java:S3252Û"RUse static access with "android.provider.MediaStore$MediaColumns" for "MIME_TYPE".(ËéÚì
+W	java:S125Ü"<This block of commented-out lines of code should be removed.(İïÂşıÿÿÿÿ
+L
+java:S1133ë	"5Do not forget to remove this deprecated code someday.(Ã†ş
+R
+java:S3740È"/Provide the parametrized type for this generic.(úÌ‚ÿÿÿÿÿ8²–¿ãÿ.

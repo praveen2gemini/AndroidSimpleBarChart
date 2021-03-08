@@ -1,19 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
-        <com.dpdlad.simplebarchart.BarChartView
-            android:id="@+id/symmetricStarViewOriginal1"
+        <HorizontalScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:minWidth="300dp"
-            android:minHeight="300dp" />
+            android:layout_height="wrap_content">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <com.dpdlad.simplebarchart.BarChartView
+                    android:id="@+id/symmetricStarViewOriginal1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:minWidth="300dp"
+                    android:minHeight="300dp" />
+            </FrameLayout>
+        </HorizontalScrollView>
+
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/mpBarChartView"
+            android:layout_width="match_parent"
+            android:layout_marginBottom="26dp"
+            android:padding="16dp"
+            android:layout_height="450dp" />
     </LinearLayout>
-</HorizontalScrollView>
+</ScrollView>
