@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="default_chart_height_width">250dp</dimen>
+    <dimen name="thumb_size">16dp</dimen>
+    <dimen name="thumb_text_size">18sp</dimen>
 </resources>

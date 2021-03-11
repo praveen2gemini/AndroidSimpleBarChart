@@ -1,0 +1,21 @@
+
+i
+java:S3776¾"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(Š¯Äÿ
+T
+java:S1854â"=Remove this useless assignment to local variable "negOffset".(ŒĞİ
+j
+java:S3776Ù"SRefactor this method to reduce its Cognitive Complexity from 174 to the 15 allowed.(ìß§â
+o	java:S135Â"YReduce the total number of break and continue statements in this loop to use at most one.(€ËÄß
+s	java:S135o"YReduce the total number of break and continue statements in this loop to use at most one.(Ôì—ûúÿÿÿÿ
+o	java:S135‰"YReduce the total number of break and continue statements in this loop to use at most one.(Õ›ÇÍ
+?
+java:S1125Ó"(Remove the literal "true" boolean value.(Ü¼Ò•
+Y
+java:S1854á"=Remove this useless assignment to local variable "posOffset".(Á¬®ôÿÿÿÿÿ
+t	java:S135š"YReduce the total number of break and continue statements in this loop to use at most one.(‰Û‹÷úÿÿÿÿ
+
+java:S1186ı"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(‚ªÈ¬üÿÿÿÿ
+m
+java:S3776Y"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(­ì¡Õÿÿÿÿÿ
+t	java:S135ˆ"YReduce the total number of break and continue statements in this loop to use at most one.(¡¹Éèÿÿÿÿÿ
+t	java:S135¼"YReduce the total number of break and continue statements in this loop to use at most one.(Öäıßúÿÿÿÿ

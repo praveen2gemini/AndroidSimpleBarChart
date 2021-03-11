@@ -1,0 +1,85 @@
+
+Z
+java:S1128"DRemove this unused import 'com.github.mikephil.charting.data.Entry'.(±§÷‰
+L
+java:S1133¯"5Do not forget to remove this deprecated code someday.(”˜ñ
+Q
+java:S1133Å"5Do not forget to remove this deprecated code someday.(ÙŠÀ©ÿÿÿÿÿ
+D
+java:S1123Å"(Add the missing @deprecated Javadoc tag.(ÙŠÀ©ÿÿÿÿÿ
+Q
+java:S1133£"5Do not forget to remove this deprecated code someday.(áù÷ûÿÿÿÿ
+Q
+java:S1133¯"5Do not forget to remove this deprecated code someday.(Ûº›–ıÿÿÿÿ
+D
+java:S1199ç"-Extract this nested code block into a method.(Ãİğ»
+q
+java:S1104‡"ZMake mTextHeightMax a static final constant or non-public and provide accessors if needed.(¦îè
+Q
+java:S1133º"5Do not forget to remove this deprecated code someday.(ê”ĞÀüÿÿÿÿ
+D
+java:S1123º"(Add the missing @deprecated Javadoc tag.(ê”ĞÀüÿÿÿÿ
+[
+java:S3358¿"DExtract this nested ternary operation into an independent statement.(ùö–Ü
+?
+java:S1123×"(Add the missing @deprecated Javadoc tag.(¡á‰½
+`
+java:S3358¾"DExtract this nested ternary operation into an independent statement.(ÓÔìŠüÿÿÿÿ
+n
+java:S3776Ø"RRefactor this method to reduce its Cognitive Complexity from 87 to the 15 allowed.(ÍøØëúÿÿÿÿ
+Z
+java:S1155û">Use isEmpty() to check whether the collection is empty or not.(×¯íÃıÿÿÿÿ
+p
+java:S1104‰"YMake mTextWidthMax a static final constant or non-public and provide accessors if needed.(²†Óï
+[
+java:S3358Ì"DExtract this nested ternary operation into an independent statement.(üÿĞÁ
+=
+java:S1659é"'Declare "maxHeight" on a separate line.(¼İª;
+Q
+java:S1133¹"5Do not forget to remove this deprecated code someday.(ãÍ±ƒıÿÿÿÿ
+[
+java:S3358ó"DExtract this nested ternary operation into an independent statement.(ıÕ·²
+D
+java:S1123Ş"(Add the missing @deprecated Javadoc tag.(Ø™Æ‹úÿÿÿÿ
+?
+java:S1123¯"(Add the missing @deprecated Javadoc tag.(”˜ñ
+?
+java:S1123Ú"(Add the missing @deprecated Javadoc tag.(îûş¬
+D
+java:S1123¯"(Add the missing @deprecated Javadoc tag.(Ûº›–ıÿÿÿÿ
+9
+java:S1659é"#Declare "width" on a separate line.(¼İª;
+L
+java:S1133Ú"5Do not forget to remove this deprecated code someday.(îûş¬
+i
+java:S3776×"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(¡á‰½
+g
+java:S1301æ"KReplace this "switch" statement by "if" statements to increase readability.(şØÌÙùÿÿÿÿ
+[
+java:S3358Æ"DExtract this nested ternary operation into an independent statement.(üÿĞÁ
+`
+java:S3358ÿ"DExtract this nested ternary operation into an independent statement.(®©¥üÿÿÿÿ
+[
+java:S3358¹"DExtract this nested ternary operation into an independent statement.(ùö–Ü
+t
+java:S1104€"XMake mNeededWidth a static final constant or non-public and provide accessors if needed.(•†ışÿÿÿÿ
+`
+java:S3358¨"DExtract this nested ternary operation into an independent statement.(‚˜•‡úÿÿÿÿ
+Q
+java:S1133Ş"5Do not forget to remove this deprecated code someday.(Ø™Æ‹úÿÿÿÿ
+D
+java:S1123¹"(Add the missing @deprecated Javadoc tag.(ãÍ±ƒıÿÿÿÿ
+I
+java:S1199Ÿ"-Extract this nested code block into a method.(œ¾ÌÒûÿÿÿÿ
+u
+java:S1104…"YMake mNeededHeight a static final constant or non-public and provide accessors if needed.(÷åëÃøÿÿÿÿ
+P
+java:S1133"5Do not forget to remove this deprecated code someday.(ƒÿşôøÿÿÿÿ
+D
+java:S1123£"(Add the missing @deprecated Javadoc tag.(áù÷ûÿÿÿÿ
+L
+java:S1133×"5Do not forget to remove this deprecated code someday.(¡á‰½
+C
+java:S1123"(Add the missing @deprecated Javadoc tag.(ƒÿşôøÿÿÿÿ
+n
+java:S3776¯"RRefactor this method to reduce its Cognitive Complexity from 40 to the 15 allowed.(Ûº›–ıÿÿÿÿ

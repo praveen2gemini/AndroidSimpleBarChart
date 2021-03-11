@@ -1,0 +1,10 @@
+
+Z
+java:S1128	"?Remove this unused import 'android.graphics.drawable.Drawable'.(Á‰º„ùÿÿÿÿ
+J
+java:S3740o"/Provide the parametrized type for this generic.(÷Ó–Âýÿÿÿÿ
+T
+java:S59933"9Change the visibility of this constructor to "protected".(ÒŸÃ¦ùÿÿÿÿ
+W	java:S107–"<Method has 8 parameters, which is greater than 7 authorized.(¹´»ûÿÿÿÿÿ
+^
+java:S1128"HRemove this unused import 'com.github.mikephil.charting.utils.MPPointF'.(º¹˜‡

@@ -1,0 +1,18 @@
+
+o
+java:S3776ß"SRefactor this method to reduce its Cognitive Complexity from 132 to the 15 allowed.(³ö–şÿÿÿÿ
+D
+java:S1199"-Extract this nested code block into a method.(Ãİğ»
+J
+java:S3740\"/Provide the parametrized type for this generic.(¯õí¨øÿÿÿÿ
+F
+java:S5411Ò"*Use the primitive boolean expression here.(Ö€úÿÿÿÿ
+g
+java:S1301²"KReplace this "switch" statement by "if" statements to increase readability.( ‘ıÙÿÿÿÿÿ
+I
+java:S1199³"-Extract this nested code block into a method.(œ¾ÌÒûÿÿÿÿ
+h
+java:S3776S"RRefactor this method to reduce its Cognitive Complexity from 44 to the 15 allowed.(ÚãÃ•
+X	java:S125"<This block of commented-out lines of code should be removed.(öÂÑ8ˆï†/
+I
+java:S1199‰"-Extract this nested code block into a method.(Óù˜Ÿıÿÿÿÿ

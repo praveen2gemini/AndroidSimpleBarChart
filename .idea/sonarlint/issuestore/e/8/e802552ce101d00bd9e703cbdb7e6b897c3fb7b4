@@ -1,0 +1,42 @@
+
+`
+java:S1124+"EReorder the modifiers to comply with the Java Language Specification.(›²ñ›şÿÿÿÿ
+t	java:S135à"YReduce the total number of break and continue statements in this loop to use at most one.(«é»Óûÿÿÿÿ
+A
+java:S2127."+Remove this "Double.longBitsToDouble" call.(±™”÷
+T
+java:S1197ä"8Move the array designator from the variable to the type.(ÿšıØÿÿÿÿÿ
+l
+java:S1192A"QDefine a constant instead of duplicating this literal "MPChartLib-Utils" 3 times.(¬À¢ÿÿÿÿÿ
+>
+java:S1123U"(Add the missing @deprecated Javadoc tag.(ÌŞñ¢
+S
+java:S1854Ó"7Remove this useless assignment to local variable "ind".(ïÿÑªşÿÿÿÿ
+[
+java:S2184™"DCast one of the operands of this subtraction operation to a "float".(Õ„æË
+i
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 25 to the 15 allowed.(Öå·
+}
+java:S1488ë"aImmediately return this expression instead of assigning it to the temporary variable "formatter".(²›±îüÿÿÿÿ
+Z
+java:S2184˜"DCast one of the operands of this subtraction operation to a "float".(÷©ıA
+[
+java:S1124*"EReorder the modifiers to comply with the Java Language Specification.(®¹èÛ
+V
+java:S2184˜"@Cast one of the operands of this integer division to a "double".(÷©ıA
+R	java:S107»"<Method has 8 parameters, which is greater than 7 authorized.(¯‰£é
+O
+java:S1118%":Add a private constructor to hide the implicit public one.(í€g
+[
+java:S1124."EReorder the modifiers to comply with the Java Language Specification.(±™”÷
+W
+java:S2184™"@Cast one of the operands of this integer division to a "double".(Õ„æË
+E
+java:S1128"/Remove this unused import 'android.util.SizeF'.(ÿ¯™ª
+[
+java:S1128
+"ERemove this unused import 'android.graphics.drawable.BitmapDrawable'.(³Ï÷
+K
+java:S1133U"5Do not forget to remove this deprecated code someday.(ÌŞñ¢
+`
+java:S11241"EReorder the modifiers to comply with the Java Language Specification.(™¯Ô®ıÿÿÿÿ
